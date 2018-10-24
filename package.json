@@ -1,0 +1,13 @@
+{
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "devDependencies": {
+    "@sfc2js/clean-css": "^1.1.1",
+    "@sfc2js/node-sass": "^2.0.0",
+    "eslint": "^5.7.0",
+    "eslint-plugin-vue": "^5.0.0-beta.3",
+    "lerna": "^3.4.3",
+    "sfc2js": "^4.0.0-beta.1"
+  }
+}
