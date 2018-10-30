@@ -1,7 +1,7 @@
 {
-  "name": "@obui/checkbox",
-  "version": "1.0.0",
-  "description": "obui checkbox",
+  "name": "@obui/menu",
+  "version": "1.0.1",
+  "description": "obui menu",
   "main": "dist/index.js",
   "files": [
     "dist"
@@ -23,5 +23,8 @@
   "bugs": {
     "url": "https://github.com/obstudio/obui/issues"
   },
-  "homepage": "https://github.com/obstudio/obui/#readme"
+  "homepage": "https://github.com/obstudio/obui/#readme",
+  "dependencies": {
+    "mousetrap": "^1.6.2"
+  }
 }
