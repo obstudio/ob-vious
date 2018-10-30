@@ -113,7 +113,7 @@ module.exports = {
 </script>
 
 <template>
-  <span class="marklet-menu" :class="{ active }">
+  <span class="ob-menu" :class="{ active }">
     <!-- children --><!-- eslint-disable -->
     <div ref="standalone" :class="{ standalone: current !== null }">
       <menu-view v-for="(item, index) in menu" v-if="item.children" :key="index"

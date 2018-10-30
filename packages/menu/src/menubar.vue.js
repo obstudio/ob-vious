@@ -74,7 +74,7 @@ module.exports = {
 if (!module.exports.mixins) module.exports.mixins = [];
 module.exports.mixins.push({
   mounted() {
-    this.$el.setAttribute('id-sarnxo', '');
+    this.$el.setAttribute('id-43idt4', '');
   }
 });
 

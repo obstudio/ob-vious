@@ -50,7 +50,7 @@ module.exports = {
 if (!module.exports.mixins) module.exports.mixins = [];
 module.exports.mixins.push({
   mounted() {
-    this.$el.setAttribute('id-gittep', '');
+    this.$el.setAttribute('id-zon0yf', '');
   }
 });
 
