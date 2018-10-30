@@ -1,5 +1,5 @@
-const checkbox = require('@obui/checkbox')
-const menu = require('@obui/menu')
+const checkbox = require('@obui/checkbox/src')
+const menu = require('@obui/menu/src')
 
 module.exports = {
   checkbox,
@@ -7,6 +7,6 @@ module.exports = {
 }
 
 module.exports.install = function(Vue) {
-  Vue.install(checkbox)
-  Vue.install(menu)
+  Vue.use(checkbox)
+  Vue.use(menu)
 }

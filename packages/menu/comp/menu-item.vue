@@ -54,7 +54,7 @@ module.exports = {
 <template>
   <div :class="['menu-item', { disabled }]" @click="handleClick">
     <span class="label">
-      <mkl-checkbox v-if="command.checked !== undefined"
+      <ob-checkbox v-if="command.checked !== undefined"
         :value="$menuManager.parseArgument(command.checked, context)" @change="handleClick"/>
       {{ caption || command.name }}
       <template v-if="mnemonic"> (<span class="mnemonic">{{ mnemonic }}</span>)</template>

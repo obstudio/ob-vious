@@ -1,10 +1,11 @@
 {
   "name": "@obui/checkbox",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "description": "obui checkbox",
   "main": "dist/index.js",
   "files": [
-    "dist"
+    "dist",
+    "src"
   ],
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
