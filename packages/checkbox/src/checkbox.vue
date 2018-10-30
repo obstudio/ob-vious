@@ -31,7 +31,7 @@ module.exports = {
 </script>
 
 <template>
-  <label class="marklet-checkbox" :class="{ focused, disabled, checked: value }">
+  <label class="ob-checkbox" :class="{ focused, disabled, checked: value }">
     <span class="box">
       <span class="inner"></span>
       <input type="checkbox" :disabled="disabled" :value="label" v-model="value"

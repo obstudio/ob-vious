@@ -1,3 +1,3 @@
 module.exports = function(Vue) {
-  Vue.component(require('./checkbox.vue'))
+  Vue.component('ob-checkbox', require('./checkbox.vue'))
 }

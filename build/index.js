@@ -1,4 +1,3 @@
-const CleanCSS = require('clean-css')
 const program = require('commander')
 const webpack = require('webpack')
 const sfc2js = require('sfc2js')
@@ -14,9 +13,9 @@ program
 
 const env = program.dev ? 'development' : 'production'
 
-sfc2js.install(require('@sfc2js/node-sass'))
-
-const cleanCSS = new CleanCSS({ level: 2 })
+sfc2js
+  .install(require('@sfc2js/node-sass'))
+  .install(require('@sfc2js/clean-css'))
 
 let sequence = Promise.resolve()
 program.args.forEach((name) => {
@@ -27,20 +26,9 @@ program.args.forEach((name) => {
       cachePath: false,
       srcDir: 'src',
       outDir: 'temp',
+      outCSSFile: '../dist/index.css',
     }).then(() => new Promise((resolve, reject) => {
       if (!program.webpack) return
-
-      const output = cleanCSS.minify(fs.readFileSync(util.fullPath(name, 'temp/app.css')))
-
-      if (output.warnings.length) {
-        console.log(chalk.redBright(output.warnings.join('\n')))
-        reject()
-      } else if (output.errors.length) {
-        console.log(chalk.redBright(output.errors.join('\n')))
-        reject()
-      }
-      
-      fs.writeFileSync(util.fullPath(name, 'dist/index.css'), output.styles)
       
       const compiler = webpack({
         target: 'web',
@@ -49,8 +37,9 @@ program.args.forEach((name) => {
         output: {
           path: util.fullPath(name, 'dist'),
           filename: 'index.js',
-          library: 'obui.' + name,
+          library: 'obui' + util.toCamel(name, true),
           libraryTarget: 'umd',
+          globalObject: 'typeof self !== \'undefined\' ? self : this',
         },
       })
 

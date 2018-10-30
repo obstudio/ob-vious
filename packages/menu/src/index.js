@@ -1,6 +1,7 @@
 const Mousetrap = require('mousetrap')
 const manager = require('./manager.vue')
 const menubar = require('./menubar.vue')
+const checkbox = require('@obui/checkbox')
 
 // TODO: improve this pattern maybe. 
 // Cause: firing event inside textarea is blocked by mousetrap by default.
@@ -11,6 +12,8 @@ function toKebab(camel) {
 }
 
 module.exports = function(Vue) {
+  Vue.install(checkbox)
+  
   Vue.component('ob-menubar', menubar)
 
   let $menuManager = null
