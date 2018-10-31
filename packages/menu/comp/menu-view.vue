@@ -112,16 +112,17 @@ module.exports = {
 
 </script>
 
-<template>
+<template><!-- eslint-disable -->
   <span class="ob-menu" :class="{ active }">
-    <!-- children --><!-- eslint-disable -->
+    <!-- children -->
     <div ref="standalone" :class="{ standalone: current !== null }">
       <menu-view v-for="(item, index) in menu" v-if="item.children" :key="index"
         :menu="item.children" :context="context" :ref="index"/>
     </div>
 
     <div ref="body" v-show="active" :class="['menu-body', { focused }]">
-      <template v-for="(item, index) in menu">
+      <template v-for="(item, index) in menu"
+        v-if="$menuManager.parseArgument(item.show, context, true)">
         <!-- submenu -->
         <menu-item :key="index" v-if="item.children"
           @click.native.stop binding=">" :context="context"

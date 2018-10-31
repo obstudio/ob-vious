@@ -85,12 +85,13 @@ module.exports = {
       if (!(args instanceof Array)) args = [args]
       method(...args.map(arg => this.parseArgument(arg, command.context)))
     },
-    parseArgument(arg, ctx) {
-      if (typeof arg !== 'string') return arg
-      if (arg.startsWith('!$')) {
-        return !arg.slice(2).split('.').reduce((prev, curr) => prev[curr], ctx)
+    parseArgument(arg, context, fallback) {
+      if (typeof arg !== 'string') {
+        return arg === undefined ? fallback : arg
+      } else if (arg.startsWith('!$')) {
+        return !arg.slice(2).split('.').reduce((prev, curr) => prev[curr], context)
       } else if (arg.startsWith('$')) {
-        return arg.slice(1).split('.').reduce((prev, curr) => prev[curr], ctx)
+        return arg.slice(1).split('.').reduce((prev, curr) => prev[curr], context)
       } else {
         return arg
       }

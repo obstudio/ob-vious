@@ -1,6 +1,6 @@
 {
   "name": "obui",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "A vue ui toolkit making everything obvious.",
   "main": "dist/index.js",
   "files": [
@@ -27,6 +27,6 @@
   "homepage": "https://github.com/obstudio/obui/#readme",
   "dependencies": {
     "@obui/checkbox": "^1.1.0",
-    "@obui/menu": "^1.1.1"
+    "@obui/menu": "^1.1.2"
   }
 }

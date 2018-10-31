@@ -13,8 +13,8 @@ module.exports = {
   }),
 
   computed: {
-    children() {
-      return this.$menuManager.menu.find(item => item.ref === this.from).children
+    menubar() {
+      return this.$menuManager.menu.find(item => item.ref === this.from)
     },
     origin() {
       return this.$menuManager.refs[this.from]
@@ -45,7 +45,7 @@ module.exports = {
     handleKeyPress(event) {
       if (!this.focused) return
       const key = event.key.toUpperCase()
-      const index = this.children.findIndex(menu => menu.mnemonic === key)
+      const index = this.menubar.children.findIndex(menu => menu.mnemonic === key)
       if (index >= 0) {
         this.toggleMenu(index)
         this.$menuManager.underlineMnemonic = true
@@ -75,10 +75,11 @@ module.exports = {
 
 </script>
 
-<template>
+<template><!-- eslint-disable -->
   <div :class="['ob-menubar', { focused }]">
     <template v-if="$menuManager.loaded">
-      <div v-for="(menu, index) in children" :key="index" class="item"
+      <div v-for="(menu, index) in menubar.children" :key="index" class="item"
+        v-if="$menuManager.parseArgument(menu.show, menubar.context, true)"
         @click.stop="toggleMenu(index)" @mouseover.stop="hoverMenu(index)"
         :class="{ active: origin.current === index }" @contextmenu.stop>
         {{ menu.caption }} (<span class="mnemonic">{{ menu.mnemonic }}</span>)&nbsp;
